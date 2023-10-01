@@ -25,7 +25,8 @@ class shmem_widget extends gauge_widget
     }
 
     function echo_content() {
-	$this->display_chart($this->title, $this->value, $this->total, $this->maximum);
+	//$this->display_chart2($this->title, $this->value, $this->total, $this->maximum);
+	$this->display_chart($this->title, $this->value, $this->total);
     }
 
     function get_data() {
@@ -41,13 +42,13 @@ class shmem_widget extends gauge_widget
 	return array($this->value, $this->total, $this->maximum);
     }
 
-    function display_chart($title, $value, $valueMax = 100, $maxEver) {
+    function display_chart($title, $value, $valueMax = 100) {
         $_SESSION['gauge_id'] = $this->id;
         $_SESSION['gauge_value'] = $value;
 	$_SESSION['gauge_max'] = $valueMax;
 	$_SESSION['warning'] = $this->warning;
 	$_SESSION['critical'] = $this->critical;
-	$_SESSION['max_ever'] = $maxEver;
+//	$_SESSION['max_ever'] = $maxEver;
 	$_SESSION['refreshInterval'] = $this->refresh;
         require(__DIR__."/../../../../../common/charting/percent_shmemd3js.php");
     }

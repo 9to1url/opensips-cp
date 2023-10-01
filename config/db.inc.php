@@ -24,10 +24,10 @@
  if (!isset($config)) $config = new stdClass();
 
  //database driver mysql or pgsql
- $config->db_driver = "mysql";
+ $config->db_driver = "pgsql";
 
  //database host
- $config->db_host = "localhost";
+ $config->db_host = "172.16.1.164";
  
  //database port - leave empty for default
  $config->db_port = "";
